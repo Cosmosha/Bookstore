@@ -3,6 +3,9 @@ import AddBook from './AddBook';
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
+  const delt = (id) => {
+    setBooks([...books.filter((book) => book.id !== id)]);
+  };
   return (
     <div>
       <h2> LIST OF BOOKS </h2>
@@ -18,6 +21,12 @@ const BookList = () => {
             | by:
             {' '}
             {book.author}
+            {' '}
+            <button type="submit" onClick={() => delt(book.id)}>
+              {' '}
+              Delete
+              {' '}
+            </button>
             {' '}
           </li>
           {' '}
