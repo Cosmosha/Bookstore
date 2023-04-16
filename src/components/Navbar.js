@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <nav>
       <h1>
-        <NavLink to="/" className="site-title">
+        <NavLink to="/" className="logo">
           Bookstore CMS
           {' '}
         </NavLink>
