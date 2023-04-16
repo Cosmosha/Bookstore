@@ -12,13 +12,13 @@ const BookList = () => {
           <li>
             {' '}
             Book Title:
-            {book.title}
-          </li>
-          {' '}
-          <li>
             {' '}
-            author:
+            {book.title}
+            {' '}
+            | by:
+            {' '}
             {book.author}
+            {' '}
           </li>
           {' '}
         </ul>
