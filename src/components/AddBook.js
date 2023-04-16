@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import uuid from 'react-uuid';
+import PropTypes from 'prop-types';
 
 const AddBook = ({ books, setBooks }) => {
   const [getTitle, setTitle] = useState('');
@@ -60,6 +60,11 @@ const AddBook = ({ books, setBooks }) => {
       {' '}
     </div>
   );
+};
+
+AddBook.propTypes = {
+  books: PropTypes.string.isRequired,
+  setBooks: PropTypes.string.isRequired,
 };
 
 export default AddBook;
