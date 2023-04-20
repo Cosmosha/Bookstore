@@ -47,9 +47,10 @@ To get a local copy up and running, follow these steps.
 ### Prerequisites
 
 ```
-Git
+Git Github
 VS Code
-Node
+Node CSS,
+React, Redux
 ```
 
 ### Setup
@@ -81,6 +82,12 @@ npm test
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Deployment
+
+- This project is not deployed yet
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### 👥 Authors <a name="#authors"></a>
 
 👤 **Cosmos Hagan**
@@ -88,11 +95,11 @@ npm test
 - GitHub: [@Cosmosha](https://github.com/Cosmosha)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/cosmos-hagan-1361871ba)
 
-### 🔭 Features <a name="future-features"></a>
+### 🔭 Future Features <a name="future-features"></a>
 
-- **[Gitflow]**
-- **[Create React APP]**
-- **[JavaScript testing library (Jest)]**
+> Some features are coming soon.
+
+- [ ] **Interactive Bookstore**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
