@@ -76,9 +76,9 @@ NodeJS
 
 ### Setup
 
-```
+```sh
 cd my-folder
-gh repo clone cosmosha/Bookstore
+git clone https://github.com/cosmosha/Bookstore.git
 cd Bookstore
 ```
 
