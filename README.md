@@ -71,8 +71,7 @@ To get a local copy up and running, follow these steps.
 ```
 Git Github
 VS Code
-Node CSS,
-React, Redux
+NodeJS
 ```
 
 ### Setup
