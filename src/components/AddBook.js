@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import uuid from 'react-uuid';
-import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
+import { useDispatch } from 'react-redux';
+import { addBook } from '../redux/books/booksSlice';
 
-const AddBook = ({ books, setBooks }) => {
+const AddBook = () => {
+  const dispatch = useDispatch();
   const [getTitle, setTitle] = useState('');
   const [getAuthor, setAuthor] = useState('');
   const [message, setMessage] = useState('');
@@ -17,9 +19,13 @@ const AddBook = ({ books, setBooks }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (getTitle.trim() && getAuthor.trim()) {
-      const newBooks = [...books];
-      newBooks.push({ id: uuid(), title: getTitle, author: getAuthor });
-      setBooks(newBooks);
+      dispatch(
+        addBook({
+          item_id: uuidv4(),
+          title: getTitle,
+          author: getAuthor,
+        }),
+      );
       setTitle('');
       setAuthor('');
       setMessage('');
@@ -60,11 +66,6 @@ const AddBook = ({ books, setBooks }) => {
       {' '}
     </div>
   );
-};
-
-AddBook.propTypes = {
-  books: PropTypes.string.isRequired,
-  setBooks: PropTypes.string.isRequired,
 };
 
 export default AddBook;

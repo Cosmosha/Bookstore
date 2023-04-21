@@ -50,3 +50,8 @@ nav {
 .submit-warning {
   color: red;
 }
+
+.bookitem {
+  display: flex;
+  gap: 30px;
+}
