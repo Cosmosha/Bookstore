@@ -1,10 +1,10 @@
 import { React } from 'react';
-import BookList from './BookList';
+import BooksContainer from './BooksContainer';
 
 const Books = () => (
   <>
-    <BookList />
     {' '}
+    <BooksContainer />
   </>
 );
 

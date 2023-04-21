@@ -1,35 +1,35 @@
 import { NavLink } from 'react-router-dom';
 
-export default function Navbar() {
-  return (
-    <nav>
-      <h1>
-        <NavLink to="/" className="logo">
-          Bookstore CMS
+const Navbar = () => (
+  <nav>
+    <h1>
+      <NavLink to="/" className="logo">
+        Bookstore CMS
+        {' '}
+      </NavLink>
+      {' '}
+    </h1>
+    {' '}
+    <ul>
+      <li>
+        <NavLink className="nav-link" to="/">
+          BOOKS
           {' '}
         </NavLink>
         {' '}
-      </h1>
+      </li>
       {' '}
-      <ul>
-        <li>
-          <NavLink className="nav-link" to="/">
-            BOOKS
-            {' '}
-          </NavLink>
+      <li>
+        <NavLink className="nav-link" to="/categories">
+          CATEGORIES
           {' '}
-        </li>
+        </NavLink>
         {' '}
-        <li>
-          <NavLink className="nav-link" to="/categories">
-            CATEGORIES
-            {' '}
-          </NavLink>
-          {' '}
-        </li>
-        {' '}
-      </ul>
+      </li>
       {' '}
-    </nav>
-  );
-}
+    </ul>
+    {' '}
+  </nav>
+);
+
+export default Navbar;
