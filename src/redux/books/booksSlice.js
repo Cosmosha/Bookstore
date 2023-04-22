@@ -7,11 +7,12 @@ const url = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstor
 
 const initialState = {
   book: [],
-  isLoading: true,
+  isLoading: false,
   error: null,
+  isSuccess: false,
 };
 
-export const getBooks = createAsyncThunk(
+export const fetchBook = createAsyncThunk(
   'books/getBooks',
   async (data, thunk) => {
     try {
@@ -69,17 +70,26 @@ const booksSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getBooks.pending, (state, action) => {
+      .addCase(fetchBook.pending, (state) => {
         state.isLoading = true;
-        state.error = action.payload;
       })
-      .addCase(getBooks.fulfilled, (state, action) => {
+      .addCase(fetchBook.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.isSuccess = true;
         state.book = action.payload;
       })
-      .addCase(getBooks.rejected, (state, action) => {
+      .addCase(fetchBook.rejected, (state, action) => {
         state.isLoading = false;
+        state.isSuccess = false;
         state.error = action.payload;
+      })
+      .addCase(postBooks.fulfilled, (state) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+      })
+      .addCase(deleteBook.fulfilled, (state) => {
+        state.isLoading = false;
+        state.isSuccess = true;
       });
   },
 });

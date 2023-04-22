@@ -1,23 +1,20 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { postBooks, getBooks } from '../redux/books/booksSlice';
+import { postBooks, fetchBook } from '../redux/books/booksSlice';
 
 const AddBook = () => {
   const dispatch = useDispatch();
   const [getTitle, setTitle] = useState('');
   const [getAuthor, setAuthor] = useState('');
   const [message, setMessage] = useState('');
+  // const [state, setState] = useState(false);
 
   const handleTitle = (e) => {
     setTitle(e.target.value);
   };
   const handleAuthor = (e) => {
     setAuthor(e.target.value);
-  };
-
-  const handleBook = async () => {
-    await dispatch(getBooks());
   };
 
   const handleSubmit = async (e) => {
@@ -30,13 +27,16 @@ const AddBook = () => {
           author: getAuthor,
           category: 'Inspirational',
         }),
-      );
+      ).then(() => {
+        dispatch(fetchBook());
+      });
       setTitle('');
       setAuthor('');
       setMessage('');
-      handleBook();
+      // setState(false);
     } else {
       setMessage('Please enter a book title and author.');
+      // setState(true);
     }
   };
 

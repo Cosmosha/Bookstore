@@ -1,18 +1,15 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import Book from './Book';
-import AddBook from './AddBook';
-import { getBooks, deleteBook } from '../redux/books/booksSlice';
 
-const BooksContainer = () => {
-  // const dispatch = useDispatch();
+import AddBook from './AddBook';
+import { fetchBook, deleteBook } from '../redux/books/booksSlice';
+
+const BooksList = () => {
   const { book, isLoading, error } = useSelector((store) => store.books);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getBooks());
+    dispatch(fetchBook());
   }, [dispatch]);
 
   if (isLoading) {
@@ -29,7 +26,7 @@ const BooksContainer = () => {
     return (
       <div>
         {' '}
-        <h3> something went wrong wrong... </h3>
+        <h3> something went wrong... </h3>
         {' '}
       </div>
     );
@@ -58,11 +55,11 @@ const BooksContainer = () => {
       </>
     );
   }
-  const handleBook = async () => {
-    await dispatch(getBooks());
-  };
-  const handleDelete = async (item_id) => {
-    dispatch(deleteBook(item_id));
+
+  const handleDelete = async (id) => {
+    dispatch(deleteBook(id)).then(() => {
+      dispatch(fetchBook());
+    });
   };
 
   return (
@@ -98,7 +95,6 @@ const BooksContainer = () => {
                       className="removeBook"
                       onClick={() => {
                         handleDelete(item);
-                        handleBook();
                       }}
                     >
                       {' '}
@@ -131,4 +127,4 @@ const BooksContainer = () => {
   );
 };
 
-export default BooksContainer;
+export default BooksList;
