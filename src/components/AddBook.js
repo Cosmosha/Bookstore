@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/booksSlice';
+import { postBooks, getBooks } from '../redux/books/booksSlice';
 
 const AddBook = () => {
   const dispatch = useDispatch();
@@ -16,19 +16,25 @@ const AddBook = () => {
     setAuthor(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleBook = async () => {
+    await dispatch(getBooks());
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (getTitle.trim() && getAuthor.trim()) {
-      dispatch(
-        addBook({
+      await dispatch(
+        postBooks({
           item_id: uuidv4(),
           title: getTitle,
           author: getAuthor,
+          category: 'Inspirational',
         }),
       );
       setTitle('');
       setAuthor('');
       setMessage('');
+      handleBook();
     } else {
       setMessage('Please enter a book title and author.');
     }
