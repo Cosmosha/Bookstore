@@ -20,7 +20,7 @@ export const getBooks = createAsyncThunk(
     } catch (error) {
       return thunk.rejectWithValue('something went wrong...');
     }
-  }
+  },
 );
 
 export const postBooks = createAsyncThunk(
@@ -32,7 +32,7 @@ export const postBooks = createAsyncThunk(
     } catch (error) {
       return thunk.rejectWithValue('something went wrong...');
     }
-  }
+  },
 );
 
 export const deleteBook = createAsyncThunk(
@@ -45,7 +45,7 @@ export const deleteBook = createAsyncThunk(
     } catch (error) {
       return error.message;
     }
-  }
+  },
 );
 
 const booksSlice = createSlice({
