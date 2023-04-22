@@ -20,7 +20,7 @@ export const getBooks = createAsyncThunk(
     } catch (error) {
       return thunk.rejectWithValue('something went wrong...');
     }
-  },
+  }
 );
 
 export const postBooks = createAsyncThunk(
@@ -32,7 +32,7 @@ export const postBooks = createAsyncThunk(
     } catch (error) {
       return thunk.rejectWithValue('something went wrong...');
     }
-  },
+  }
 );
 
 export const deleteBook = createAsyncThunk(
@@ -41,12 +41,11 @@ export const deleteBook = createAsyncThunk(
     try {
       const getBook = `${url}/${item_id}`;
       await axios.delete(getBook);
-      console.log(item_id);
       return item_id;
     } catch (error) {
       return error.message;
     }
-  },
+  }
 );
 
 const booksSlice = createSlice({
