@@ -8,7 +8,6 @@ const AddBook = () => {
   const [getTitle, setTitle] = useState('');
   const [getAuthor, setAuthor] = useState('');
   const [message, setMessage] = useState('');
-  // const [state, setState] = useState(false);
 
   const handleTitle = (e) => {
     setTitle(e.target.value);
@@ -33,10 +32,8 @@ const AddBook = () => {
       setTitle('');
       setAuthor('');
       setMessage('');
-      // setState(false);
     } else {
       setMessage('Please enter a book title and author.');
-      // setState(true);
     }
   };
 
@@ -47,14 +44,14 @@ const AddBook = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Book Title"
+          placeholder="Book title"
           value={getTitle}
           onChange={handleTitle}
         />
         {' '}
         <input
           type="text"
-          placeholder="author name"
+          placeholder="Author"
           value={getAuthor}
           onChange={handleAuthor}
         />
