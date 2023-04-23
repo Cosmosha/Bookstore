@@ -4,7 +4,10 @@ import BooksList from './BooksList';
 const Books = () => (
   <>
     {' '}
-    <BooksList />
+    <main className="bookContainer">
+      <BooksList />
+    </main>
+    {' '}
   </>
 );
 

@@ -2,13 +2,10 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = () => (
   <nav>
-    <h1>
-      <NavLink to="/" className="logo">
-        Bookstore CMS
-        {' '}
-      </NavLink>
+    <NavLink to="/" className="logo">
+      Bookstore CMS
       {' '}
-    </h1>
+    </NavLink>
     {' '}
     <ul>
       <li>

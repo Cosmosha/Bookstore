@@ -14,7 +14,7 @@ const BooksList = () => {
 
   if (isLoading) {
     return (
-      <div>
+      <div className="notify">
         {' '}
         <h2> Loading... </h2>
         {' '}
@@ -24,9 +24,9 @@ const BooksList = () => {
 
   if (error) {
     return (
-      <div>
+      <div className="notify">
         {' '}
-        <h3> something went wrong... </h3>
+        <h2> something went wrong... </h2>
         {' '}
       </div>
     );
@@ -36,18 +36,15 @@ const BooksList = () => {
     return (
       <>
         <section className="books">
-          <header>
-            <h2> Books Store </h2>
-            {' '}
+          <div>
             <h4 className="empty-store"> No Books Found... </h4>
             {' '}
-          </header>
+          </div>
           {' '}
         </section>
         {' '}
         <footer>
-          <hr />
-          {' '}
+          <hr className="line" />
           <AddBook />
           {' '}
         </footer>
@@ -64,7 +61,7 @@ const BooksList = () => {
 
   return (
     <>
-      <section>
+      <section className="books">
         <div className="book-list">
           <ul>
             {' '}
@@ -74,33 +71,76 @@ const BooksList = () => {
                   {' '}
                   {book[item][0].item_id}
                   {' '}
-                  <div className="bookitemContainer">
-                    <div className="bookitem">
-                      <h3>
+                  <div className="bContainer">
+                    <div className="bookitemContainer">
+                      <div className="bookitem">
+                        <h3 className="cart"> Action </h3>
                         {' '}
-                        {book[item][0].title}
+                        <h2 className="title">
+                          {' '}
+                          {book[item][0].title}
+                          {' '}
+                        </h2>
                         {' '}
-                      </h3>
+                        <h4 className="author">
+                          {' '}
+                          {book[item][0].author}
+                          {' '}
+                        </h4>
+                        {' '}
+                      </div>
                       {' '}
-                      <p>
+                      <div className="actionBtn">
+                        <button type="button"> Comments </button>
                         {' '}
-                        {book[item][0].author}
+                        <span className="lineup"> | </span>
                         {' '}
-                      </p>
+                        <button
+                          type="button"
+                          className="removeBook"
+                          onClick={() => {
+                            handleDelete(item);
+                          }}
+                        >
+                          remove
+                          {' '}
+                        </button>
+                        {' '}
+                        <span className="lineup"> | </span>
+                        {' '}
+                        <button type="button"> Edit </button>
+                        {' '}
+                      </div>
                       {' '}
                     </div>
                     {' '}
-                    <button
-                      type="button"
-                      className="removeBook"
-                      onClick={() => {
-                        handleDelete(item);
-                      }}
-                    >
+                    <div className="complete">
+                      <div className="progress-bar"> </div>
                       {' '}
-                      remove
+                      <h3 className="progress-status">
+                        {' '}
+                        64 %
+                        {' '}
+                        <br />
+                        {' '}
+                        <span className="comp">
+                          {' '}
+                          Completed
+                          {' '}
+                        </span>
+                        {' '}
+                      </h3>
                       {' '}
-                    </button>
+                    </div>
+                    {' '}
+                    <div className="chapter">
+                      <h3 className="chapter-title"> CURRENT CHAPTER </h3>
+                      {' '}
+                      <p className="chapter-info"> Chapter 17 </p>
+                      {' '}
+                      <button type="button"> UPDATE PROGRESS </button>
+                      {' '}
+                    </div>
                     {' '}
                   </div>
                   {' '}
@@ -117,7 +157,7 @@ const BooksList = () => {
       </section>
       {' '}
       <footer>
-        <hr />
+        <hr className="line" />
         {' '}
         <AddBook />
         {' '}
