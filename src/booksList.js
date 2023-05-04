@@ -18,6 +18,12 @@ const books = [
     author: 'Richard Dawkins',
     category: 'Nonfiction',
   },
+  {
+    item_id: 'item4',
+    title: 'The Great Gene',
+    author: 'Richard Dawkins',
+    category: 'Nonfiction',
+  },
 ];
 
 export default books;
